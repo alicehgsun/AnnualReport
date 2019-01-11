@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>NYU International Students</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.5.0"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <html>
+
+  <body>
+    <div style="text-align: center">
+    <img src="img/NYUDataViz.png">
+
+    <!-- students -->
+    <div class = "intro" style="text-align: center;">
+      <h2>NYU International Students</h2>
+      <p>In 2017-18, NYU had 17,552 international students. Explore the population.</p>
+    </div>
+    <div class="ChartLegend" id="StudentLegend"></div>
+    <div class="ChartDiv">
+      <canvas id="StudentCanvas"></canvas>
+    </div>
+    <br><br><br>
+    <hr>
+
+    <!-- scholars -->
+    <div class = "intro" style="text-align: center;">
+      <h2>NYU International Scholars</h2>
+      <p>In 2017-18, NYU had 1,247 international scholars. Explore the population.</p>
+    </div>
+    <div class="ChartLegend" id="ScholarLegend"></div>
+    <div class="ChartDiv">
+      <canvas id="ScholarCanvas"></canvas>
+    </div>
+    <br><br><br>
+    <hr>
+
+    <!-- all -->
+    <div class = "intro" style="text-align: center;">
+    <h2>Around the world</h2>
+    <p>An interactive map with student and scholar data by country of origin.</p>
+    <p class = "note">Click on each country for more info. For a full version of this map, go <a href="http://www.nyu.edu/ogs/placeoforigin" target="_blank">here</a>.</p>
+     <iframe width="780" height="400" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col16+from+1b-0L1Z9dg16_PctUNu1mralYjb_OswUzPbD-FCo&amp;viz=MAP&amp;h=false&amp;lat=31.11979350879503&amp;lng=12.887599421875166&amp;t=1&amp;z=3&amp;l=col16&amp;y=2&amp;tmplt=2&amp;hml=GEOCODABLE"></iframe>
+    </div>
+    <br><br><br>
+    <hr>
+    <br>
+
+  </body>
+
+  </html>
+  <script src="index.js"></script>
+</body>
+
+</html>
