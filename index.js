@@ -20,12 +20,12 @@ Chart.pluginService.register({
 
       if (chart.id == 0) {
         // international student
-        centerText = "17,552 (174% UP)";
-        subText = "2007-08: 6,404";
+        centerText = "17,552";
+        subText = "+174% since 9/2007";
       } else {
         // international scholar
-        centerText = "1,247 (80% UP)";
-        subText = "2007-08: 692";
+        centerText = "1,247";
+        subText = "+80% since 9/2007";
       }
       var text = centerText,
           textX = Math.round((width - ctx.measureText(text).width) / 2),
@@ -80,7 +80,7 @@ var myChart = new Chart(ctx, {
   type: "doughnut",
   // plugins: [ChartDataLabels],
   data: {
-    labels: ["Gender", "Academic Lv", "Visa Type"],
+    labels: ["Gender*", "Academic Lv", "Visa Type"],
     datasets: [{
         // gender
         // percentage(%) from total 17552
@@ -183,7 +183,7 @@ var myChart2 = new Chart(ctx2, {
   type: "doughnut",
   // plugins: [ChartDataLabels],
   data: {
-    labels: ["Gender", "Scholar Function", "Visa Type"],
+    labels: ["Gender*", "Scholar Function", "Visa Type"],
     datasets: [{
         // gender
         // percentage(%) from total 1247

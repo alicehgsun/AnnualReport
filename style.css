@@ -1,69 +1,116 @@
-@font-face { font-family: 'Gotham-Book'; font-weight:200; src: url('font/Gotham-Book.otf'); }
-@font-face { font-family: 'Gotham-Light'; font-weight:100; src: url('font/Gotham-Light.otf'); }
-@font-face { font-family: 'Gotham-Medium'; font-weight: medium; src: url('font/Gotham-Medium.otf');}
-
-.intro{padding-top: 1rem}
-
-img {
-            width: 100%;
-            height: auto;
-        }
-
-h2 {
-    font-family: 'Gotham-Medium';
-    font-weight: medium;
-    font-size: 2rem;
-}
-
-p {
-    font-family: 'Gotham-Book';
-    font-weight: 200;
-    font-size: 1rem;
-}
-
-.note {
-    font-family: 'Gotham-Book';
-    font-size: .84rem;
-}
-
-.ChartDiv, .ChartLegend {
+@font-face {
   font-family: 'Gotham-Book';
-  font-size: .8rem
-  /* max-width: 1000px;
-  max-height: 400px; */
+  font-weight: 200;
+  src: url('font/Gotham-Book.otf');
 }
 
-ul {
-    padding: 0;
-    list-style-type: none;
+@font-face {
+  font-family: 'Gotham-Light';
+  font-weight: 100;
+  src: url('font/Gotham-Light.otf');
 }
 
+@font-face {
+  font-family: 'Gotham-Medium';
+  font-weight: medium;
+  src: url('font/Gotham-Medium.otf');
+}
 
 [class="0-legend"], [class="1-legend"] {
   cursor: pointer;
   list-style: none;
   text-align: center;
 }
+
 [class="0-legend"] li, [class="1-legend"] li {
   display: inline-block;
   padding: 0 6px;
 }
+
 [class="0-legend"] li.hidden, [class="1-legend"] li.hidden {
   text-decoration: line-through;
 }
+
 [class="0-legend"] li span, [class="1-legend"] li span {
   display: inline-block;
   height: 10px;
   width: 10px;
 }
 
-body{
+.intro {
+  padding: 1em 0 1em 0
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.button {
+  padding: 2em 0 0 0;
+}
+
+button {
+  padding: 1em 2em 1em 2em;
+  font-family: 'Gotham-Medium';
+  color: #57068c;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1px solid #57068c;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #57068c;
+  color: white;
+}
+
+button:focus {
+  outline: none;
+}
+
+h2 {
+  font-family: 'Gotham-Medium';
+  font-weight: medium;
+  font-size: 2rem;
+}
+
+p {
+  font-family: 'Gotham-Book';
+  font-weight: 200;
+  font-size: 1rem;
+  padding: 0 2rem 0 2rem;
+
+}
+
+.note {
+  font-family: 'Gotham-Book';
+  font-size: .84rem;
+}
+
+.ChartDiv, .ChartLegend {
+  font-family: 'Gotham-Book';
+  font-size: .8rem
+    /* max-width: 1000px;
+  max-height: 400px; */
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+
+body {
   margin: 0;
-  color: #000000;}
+  color: #000000;
+}
 
 canvas {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    padding:1rem 0px 1rem 0px
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  padding: 1rem 0px 1rem 0px
 }

@@ -3,58 +3,78 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>NYU International Students</title>
+  <title>NYU International Data</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.5.0"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <html>
-
-  <body>
-    <div style="text-align: center">
-    <img src="img/NYUDataViz.png">
+  <div style="text-align: center">
+    <!-- HTML ACCESSIBILITY: img alt text -->
+    <img src="img/NYUDataViz.png" alt="White text that says 'NUMBERS from the Office of Global Services' with a growing plant next to the text">
 
     <!-- students -->
-    <div class = "intro" style="text-align: center;">
+    <div class="intro" style="text-align: center;">
       <h2>NYU International Students</h2>
       <p>In 2017-18, NYU had 17,552 international students. Explore the population.</p>
     </div>
     <div class="ChartLegend" id="StudentLegend"></div>
     <div class="ChartDiv">
-      <canvas id="StudentCanvas"></canvas>
+      <!-- HTML ACCESSIBILITY: aria-label and role -->
+      <canvas id="StudentCanvas" role="img" aria-label="3-layered doughnut chart of NYU International Students.
+      The most outer layer is 'Gender'--Female: 52%, Male: 48% (Data is limited to binary female/male based on passport information).
+      The middle layer is 'Academic Level'--Graduate: 8254, Undergraduate: 4952, Post-graduation training: 3929, Others: 417.
+      The most inner layer is 'Visa Type'--F-1: 17042, J-1: 321, Others: 189.
+      Total number of NYU International Students is 17552, which is an increase by 174% from September 2007."></canvas>
     </div>
-    <br><br><br>
+    <p class="note">*Data is limited to binary female/male based on passport information.</p>
+    <br><br>
     <hr>
 
+    <!-- map -->
+    <div class="intro" style="text-align: center;">
+      <h2>Around the world</h2>
+      <p>An interactive map with international students data by country of origin.</p>
+      <p class="note">Click on each country for more info. For a full version of this map, go <a href="http://www.nyu.edu/ogs/placeoforigin" target="_blank">here</a>.</p>
+    </div>
+    <!-- HTML ACCESSIBILITY: iframe title -->
+    <iframe width="780" height="400" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col16+from+1b-0L1Z9dg16_PctUNu1mralYjb_OswUzPbD-FCo&amp;viz=MAP&amp;h=false&amp;lat=31.11979350879503&amp;lng=12.887599421875166&amp;t=1&amp;z=3&amp;l=col16&amp;y=2&amp;tmplt=2&amp;hml=GEOCODABLE"
+      title="World Map with NYU International Students Data by country of origin"></iframe>
+    <br><br><br><br>
+    <hr>
+    <br>
+
     <!-- scholars -->
-    <div class = "intro" style="text-align: center;">
+    <div class="intro" style="text-align: center;">
       <h2>NYU International Scholars</h2>
       <p>In 2017-18, NYU had 1,247 international scholars. Explore the population.</p>
     </div>
     <div class="ChartLegend" id="ScholarLegend"></div>
     <div class="ChartDiv">
-      <canvas id="ScholarCanvas"></canvas>
-    </div>
-    <br><br><br>
-    <hr>
+      <!-- HTML ACCESSIBILITY: aria-label and role -->
+      <canvas id="ScholarCanvas" role="img" aria-label="3-layered doughnut chart of NYU International Scholars.
+      The most outer layer is 'Gender'--Female: 39%, Male: 61% (Data is limited to binary female/male based on passport information).
+      The middle layer is 'Scholar Function'--Research: 957, Teaching: 239, Teaching and Research: 35, Others: 16.
+      The most inner layer is 'Visa Type'--J-1: 999, H-1B: 207, Others: 41.
+      Total number of NYU International Scholars is 1247, which is an increase by 80% from September 2007."
+        </canvas> </div> <p class="note">*Data is limited to binary female/male based on passport information.</p>
+        <br><br>
+        <hr>
 
-    <!-- all -->
-    <div class = "intro" style="text-align: center;">
-    <h2>Around the world</h2>
-    <p>An interactive map with student and scholar data by country of origin.</p>
-    <p class = "note">Click on each country for more info. For a full version of this map, go <a href="http://www.nyu.edu/ogs/placeoforigin" target="_blank">here</a>.</p>
-     <iframe width="780" height="400" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col16+from+1b-0L1Z9dg16_PctUNu1mralYjb_OswUzPbD-FCo&amp;viz=MAP&amp;h=false&amp;lat=31.11979350879503&amp;lng=12.887599421875166&amp;t=1&amp;z=3&amp;l=col16&amp;y=2&amp;tmplt=2&amp;hml=GEOCODABLE"></iframe>
-    </div>
-    <br><br><br>
-    <hr>
-    <br>
+        <!-- annual reports in pdf -->
+        <div class="button" style="text-align: center;">
+          <a href="http://www.nyu.edu/content/dam/nyu/globalServices/documents/annualreport/annualReport2017-18.pdf" target="_blank"><button>Download Full Annual Report 2017 — 2018</button></a>
+        </div>
+        <!-- <div class="button" style="text-align: center;">
+      <a href="http://www.nyu.edu/content/dam/nyu/globalServices/documents/annualreport/annualReport2015-16.pdf" target="_blank"><button>Annual Report 2015 - 2016</button></a>
+    </div> -->
+        <br><br><br>
 
-  </body>
+</body>
 
-  </html>
-  <script src="index.js"></script>
+</html>
+<script src="index.js"></script>
 </body>
 
 </html>
