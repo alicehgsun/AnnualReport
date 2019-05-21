@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>NYU International Students | Place of Origin Map</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		html,
+		body,
+		#googft-mapCanvas {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+
+		#googft-legend {
+			background-color: #fff;
+			border: 1px solid #000;
+			font-family: Arial, sans-serif;
+			font-size: 12px;
+			margin-left: 30px;
+			margin-bottom: 60px;
+			padding: 10px 10px 8px;
+		}
+
+		#googft-legend p {
+			font-weight: bold;
+			margin-top: 0;
+		}
+
+		#googft-legend div {
+			margin-bottom: 5px;
+		}
+
+		.googft-legend-swatch {
+			border: 1px solid;
+			float: left;
+			height: 12px;
+			margin-right: 8px;
+			width: 20px;
+		}
+
+		.googft-legend-range {
+			margin-left: 0;
+		}
+
+		.googft-dot-icon {
+			margin-right: 8px;
+		}
+
+		.googft-paddle-icon {
+			height: 24px;
+			left: -8px;
+			margin-right: -8px;
+			position: relative;
+			vertical-align: middle;
+			width: 24px;
+		}
+
+		.googft-legend-source {
+			margin-bottom: 0;
+			margin-top: 8px;
+		}
+
+		.googft-legend-source a {
+			color: #666;
+			font-size: 11px;
+		}
+	</style>
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap"></script>
+	<!-- API key: AIzaSyBkpJ3YqWwssGEs5x8XHZaFoA2nxxJjX6o -->
+	<!-- this API key should be replaced. -->
+	<script type="text/javascript">
+		function initialize() {
+			map = new google.maps.Map(document.getElementById('googft-mapCanvas'), {
+				center: new google.maps.LatLng(30.250585388318143, -31.189551015624815),
+				zoom: 3,
+				styles: [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.province",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dadada"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#c9c9c9"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  }
+],
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
+			map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(document.getElementById('googft-legend'));
+
+			layer = new google.maps.FusionTablesLayer({
+				map: map,
+				heatmap: {
+					enabled: false
+				},
+				query: {
+					select: "col16",
+					from: "1b-0L1Z9dg16_PctUNu1mralYjb_OswUzPbD-FCo",
+					where: ""
+				},
+				options: {
+					styleId: 2,
+					templateId: 2
+				}
+			});
+		}
+
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+
+
+
+</head>
+
+<body style="background:white">
+
+	<!-- MAP TOP -->
+	<div style="color:#57068c;padding-left:20px;">
+		<h2>
+
+			<table border="0" cellspacing="0" cellpadding="0px" style="font-weight: bold; height: 40px; width: 800px;">
+				<tr>
+					<td> <a href="https://www.nyu.edu/ogs"><img src="OGSlogo.png" alt="OGS" title="OGS" style="border: 0; padding-left:20px; padding-right:20px"></a>
+					</td>
+					<td>NYU International Students • Place of Origin Map</td>
+		</h2>
+
+		</tr>
+		</table>
+	</div>
+	<!-- THE MAP -->
+
+	<div id="googft-mapCanvas"></div>
+
+	<!-- THE LEGEND -->
+	<div id="googft-legend" style="font-family: Verdana, Arial, sans-serif">
+
+		<p id="googft-legend-title">NYU International Students</p>
+		<div>
+			<span class="googft-legend-swatch" style="background-color: #e5c7ff"></span>
+			<span class="googft-legend-range">0 to 10</span>
+		</div>
+		<div>
+			<span class="googft-legend-swatch" style="background-color: #d3a5fa"></span>
+			<span class="googft-legend-range">10 to 50</span>
+		</div>
+		<div>
+			<span class="googft-legend-swatch" style="background-color: #c184f6"></span>
+			<span class="googft-legend-range">50 to 100</span>
+		</div>
+		<div>
+			<span class="googft-legend-swatch" style="background-color: #af63f2"></span>
+			<span class="googft-legend-range">100 to 300</span>
+		</div>
+		<div>
+			<span class="googft-legend-swatch" style="background-color: #9d42ed"></span>
+			<span class="googft-legend-range">300 to 700</span>
+		</div>
+		<div>
+			<span class="googft-legend-swatch" style="background-color: #8b21e9"></span>
+			<span class="googft-legend-range">700 to 3,000</span>
+		</div>
+		<div>
+			<span class="googft-legend-swatch" style="background-color: #7a00e5"></span>
+			<span class="googft-legend-range">3,000 to 7,300</span>
+		</div>
+		<div class="googft-legend-source">
+			<a href="https://www.iie.org/Research-and-Publications/Open-Doors/Data" target="_blank">Source: Open Doors Data</a>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
